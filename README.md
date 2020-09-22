@@ -1,1 +1,1 @@
-# cpt
+# Preformance test framework (PTF)

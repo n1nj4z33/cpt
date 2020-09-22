@@ -1,0 +1,23 @@
+:9090 {
+  reverse_proxy * {
+    to prometheus:9090
+  }
+}
+
+:3000 {
+  reverse_proxy * {
+    to grafana:3000
+  }
+}
+
+:8086 {
+  reverse_proxy * {
+    to influxdb:8086
+  }
+}
+
+:8081 {
+  reverse_proxy * {
+    to jenkins:8081
+  }
+}

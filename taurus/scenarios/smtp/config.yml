@@ -1,0 +1,18 @@
+execution:
+  - concurrency: 1
+    hold-for: 2m
+    ramp-up: 1m
+    steps: 1
+    scenario:
+    script: test.jmx
+
+settings:
+  check-interval: 5s
+  default-executor: jmeter
+
+scenarios:
+  simple:
+    script: test.jmx
+
+execution:
+  - scenario: simple

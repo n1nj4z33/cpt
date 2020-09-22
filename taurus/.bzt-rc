@@ -1,0 +1,12 @@
+settings:
+  default-executor: jmeter
+  #artifacts-dir: ~/bzt-artifacts/%Y-%m-%d_%H-%M-%S.%f  # change the default place to store artifact files
+
+modules:
+ jmeter:
+   path: ~/.bzt/jmeter-taurus/{version}/bin/jmeter
+   version: 5.3
+   plugins:
+     - jpgc-json=2.2
+     - jmeter-ftp
+     - jpgc-casutg
