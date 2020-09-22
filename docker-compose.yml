@@ -183,14 +183,15 @@ services:
     # restart: no
 
   jenkins:
-    image: jenkins/jenkins:latest
+    image: jenkins/jenkins
+    build: ./jenkins
     container_name: jenkins
     volumes:
       - ./jenkins/ref/init.groovy.d:/usr/share/jenkins/ref/init.groovy.d
       - /var/run/docker.sock:/var/run/docker.sock
-      # - ${DOCKER_PATH}:/usr/bin/docker:ro
-      # - ./taurus/scenarios:/taurus/scenarios
+      - /usr/local/bin/docker:/usr/bin/docker
     environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
       - JENKINS_ADMIN_LOGIN=${JENKINS_ADMIN_LOGIN:-admin}
       - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD:-admin}
     ports:
